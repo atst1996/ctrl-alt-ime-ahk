@@ -107,22 +107,8 @@
 *~PgDn::
     Return
 
-; 上部メニューがアクティブになるのを抑制
-*~LAlt::Send {Blind}{vk07}
-*~RAlt::Send {Blind}{vk07}
+; Ctrl+左Altで IME を OFF
+^LAlt up:: IME_SET(0)
 
-; 左 Alt 空打ちで IME を OFF
-LAlt up::
-    if (A_PriorHotkey == "*~LAlt")
-    {
-        IME_SET(0)
-    }
-    Return
-
-; 右 Alt 空打ちで IME を ON
-RAlt up::
-    if (A_PriorHotkey == "*~RAlt")
-    {
-        IME_SET(1)
-    }
-    Return
+; Ctrl+右Altで IME を ON
+^RAlt up:: IME_SET(1)
